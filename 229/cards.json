@@ -1,0 +1,63 @@
+[
+    {
+        "front": "<ol>Select all the expressions that are TRUE: <li>2 ∤ 15</li> <li>35 | 5</li> <li>3 | 123</li> <li>5 | 110</li><ol>",
+        "back": "<ol> <li>2 ∤ 15</li> <li>3 | 123</li> <li>5 | 110</li></ol>"
+    },
+    {
+        "front": "What is the quotient and remainder of -20 divided by 3?",
+        "back": "Quotient: -7, Remainder: 1"
+    },
+    {
+        "front": "Find the integer a satisfying -14 ≤ a ≤ 14 such that a ≡ 17 (mod 29).",
+        "back": "a = -12"
+    },
+    {
+        "front": "Simplify 21^3 mod 18.",
+        "back": "9"
+    },
+    {
+        "front": "Label the correct order of the steps necessary to solve (21^2 mod 15)^3 mod 22 using Corollary 4.1.4",
+        "back": "1. 21^2 mod 15 <br>2. = (21 mod 15)(21 mod 15) mod 15 <br>3. = 6 * 6 mod 15 <br>4. = 36 mod 15 <br>5. = 6 <br>6. 6^3 mod 22 = 6^2 * 6 mod 22 <br>7. = (36 mod 22)(6 mod 22) mod 22 <br>8. = 14 * 6 mod 22 <br>9. = 18"
+    },
+    {
+        "front": "Find the decimal expansion of (D12A)16",
+        "back": "D12A = 13 * 16^3 + 1 * 16^2 + 2 * 16 + 10 = 13 * 4096 + 1 * 256 + 2 * 16 + 10 = 53248 + 256 + 32 + 10 = 53546"
+    },
+    {
+        "front": "List all the partial products we would use when finding the product of the binary numbers 100 0111 and 111 0111",
+        "back": "<ol><li>1000111</li> <li>10001110</li> <li>100011100</li> <li>11101110000</li> <li>111011100000</li> <li>1110111000000</li></ol>"
+    },
+    {
+        "front": "List all values of p when computing 11^644 mod 645 using: <br>modExp(b, n, m): <br>&emsp;x = 1 <br>&emsp;p = b mod m<br>&emsp;for i = 0:k-1: <br>&emsp;&emsp;if a_i = 1: <br>&emsp;&emsp;&emsp;x = (x * p) mod m <br>&emsp;&emsp;p = (p * p) mod m <br>&emsp;return x",
+        "back": "<ol><li>11</li> <li>121</li> <li>451</li> <li>226</li></ol>"
+    },
+    {
+        "front": "When converting an integer from [BLANK 1] to binary representation, we convert each digit to its [BLANK 2] representation using blocks of three bits.  Then, concatenate the blocks. <br><br>When converting an integer from [BLANK 3] to binary representation, we convert each digit to its [BLANK 4] representation using blocks of four bits.  Then, concatenate the blocks.",
+        "back": "octal, binary, hexadecimal, binary"
+    },
+    {
+        "front": "A hex number has a representation composed of the digits 4, 7, and A.  Select all the potential binary expansions that the hex number can have",
+        "back": "<ol><li>010001111010</li> <li>010010100111</li> <li>011101001010</li> <li>011110100100</li> <li>101001000111</li></ol>"
+    },
+    {
+        "front": "Suppose you are asked to find the Bézout Identity of 9888 and 6060.  You find this to be 12 = 19 * 9888 + 31 * 6060.  At some point in your calculations, you computed the equation 312 = [BLANK 1] * 9888 + [BLANK 2] * 6060.  What are the values of [BLANK 1] and [BLANK 2]?",
+        "back": "-11, 18"
+    },
+    {
+        "front": "<ol>Suppose we find gcd(14039, 1529) using the Euclidean Algorithm.  Select all the GCD reductions that would be part of the solution process. <li>gcd(277, 144)</li><li>gcd(133, 11)</li><li>gcd(217, 135)</li><li>gcd(278, 139)</li></ol>",
+        "back": "gcd(278, 139)"
+    },
+    {
+        "front": "Select all the factors in the prime factorization of the GCD of 367,500 and 43,401,015.",
+        "back": "3, 5, 7^2"
+    },
+    {
+        "front": "True or False: The integers in the set {25, 41, 49, 64} are relatively prime.",
+        "back": "True"
+    },
+    {
+        "front": "How do we know there are infinitely-many primes?",
+        "back": "If there are finitely-many primes, then we come across the impossible mathematical claim, 'There exists a prime that divides 1.'"
+    }
+
+]

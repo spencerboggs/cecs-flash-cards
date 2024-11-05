@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <title>CECS Flash Cards</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="header-title">CECS Flash Cards</h1>
+    </header>
+    <main>
+        <div class="button-container" id="main-menu">
+            <button id="229">CECS 229</button>
+            <button id="325">CECS 325</button>
+            <button id="328">CECS 328</button>
+            <button id="343">CECS 343</button>
+        </div>
+    </main>
+
+    <div id="flashcards" style="display: none;">
+        <div id="card-container"></div>
+    </div>
+
+    <div class="button-container" id="back-container" style="display: none;">
+        <div class="back-button-wrapper">
+            <button id="back">Back to Main</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
+    <script>
+        var filepath = "";
+
+        function updateHeader(title) {
+            document.getElementById("header-title").textContent = title;
+        }
+
+        document.getElementById("229").addEventListener("click", function () { loadFlashcards("229/cards.json", "CECS 229 Flash Cards"); });
+        document.getElementById("325").addEventListener("click", function () { loadFlashcards("325/cards.json", "CECS 325 Flash Cards"); });
+        document.getElementById("328").addEventListener("click", function () { loadFlashcards("328/cards.json", "CECS 328 Flash Cards"); });
+        document.getElementById("343").addEventListener("click", function () { loadFlashcards("343/cards.json", "CECS 343 Flash Cards"); });
+
+        document.getElementById("back").addEventListener("click", backToMain);
+
+        function loadFlashcards(file, title) {
+            filepath = file;
+            updateHeader(title);
+            fetch(filepath)
+                .then(response => response.json())
+                .then(data => {
+                    const cardContainer = document.getElementById("card-container");
+                    cardContainer.innerHTML = "";
+                    data.forEach(card => {
+                        const cardDiv = document.createElement("div");
+                        cardDiv.className = "card";
+                        cardDiv.innerHTML = `
+                            <div class="card-inner">
+                                <div class="front">${card.front.replace(/\n/g, '<br>')}</div>
+                                <div class="back">${card.back.replace(/\n/g, '<br>')}</div>
+                            </div>
+                        `;
+                        cardDiv.addEventListener("click", () => flipCard(cardDiv));
+                        cardContainer.appendChild(cardDiv);
+                    });
+                    document.querySelector("main").style.display = "none";
+                    document.getElementById("flashcards").style.display = "block";
+                    document.getElementById("back-container").style.display = "block";
+                })
+                .catch(error => console.error("Error loading flashcards:", error));
+        }
+
+        function flipCard(cardDiv) {
+            cardDiv.classList.toggle("flipped");
+        }
+
+        function backToMain() {
+            document.getElementById("flashcards").style.display = "none";
+            document.querySelector("main").style.display = "block";
+            document.getElementById("back-container").style.display = "none";
+            updateHeader("CECS Flash Cards");
+        }
+    </script>
+</body>
+
+</html>

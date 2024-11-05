@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('RobotoMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #121212;
+    color: #f3f4f6;
+}
+
+header {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 20px;
+    margin-top: 0;
+}
+
+h1 {
+    color: #f3f4f6;
+}
+
+ol {
+    list-style-type: none;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+}
+
+main,
+#flashcards {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    width: 100%;
+}
+
+main button,
+#back {
+    margin: 10px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: #f3f4f6;
+    transition: background-color 0.3s, transform 0.3s;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+main button:hover,
+#back:hover {
+    background-color: #333333;
+}
+
+#back-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.back-button-wrapper {
+    width: 100%;
+    position: static;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#back {
+    padding: 12px 30px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: #f3f4f6;
+    transition: background-color 0.3s, transform 0.3s;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#flashcards {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    height: 70vh;
+}
+
+#card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#card-container::-webkit-scrollbar {
+    width: 6px;
+    background-color: #2a2a2a;
+}
+
+#card-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+#card-container::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+#card-container {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #2a2a2a;
+}
+
+.card {
+    width: 600px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    font-size: 1.25rem;
+    color: #f3f4f6;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.front {
+    z-index: 2;
+    background-color: #1e1e1e;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    background: #2a2a2a;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+#flashcards::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        justify-content: flex-start;
+    }
+
+    header {
+        margin-top: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 525px;
+    }
+
+    .front,
+    .back {
+        font-size: 1rem;
+        padding: 20px;
+    }
+
+    #card-container {
+        padding: 5px;
+        margin-top: 20px;
+        overflow: hidden;
+    }
+
+    #flashcards {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #back-container {
+        display: none;
+    }
+
+    #back {
+        width: 100%;
+        display: none;
+    }
+}
